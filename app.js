@@ -1,8 +1,15 @@
 const parentContainer = document.getElementById("container");
 
-for (let i = 0; i < 256; i++) {
+function divSetup() {
 
-  const pixel = document.createElement("div")
-  parentContainer.append(pixel);
+  for (let i = 0; i < 256; i++) {
+
+    let pixel = document.createElement("div")
+    parentContainer.append(pixel)
+    pixel.classList.add("px");
+
+  }
 
 }
+
+divSetup();
