@@ -17,17 +17,15 @@ function divSetup(gridAmount) {
 
 }
 
+function mouseOver(event) {
+	event.target.style.backgroundColor = "#000080";
+}
+
 changeGridButton.addEventListener("click", function askUserInput() {
 
   var userInputGridAmount = prompt("How many pixels do you want?:");
   divSetup(userInputGridAmount);
-  for (let i = 0; i < pixels.length; i++) {
 
-    pixels[i].addEventListener("mouseover", function mouseOver() {
-      pixels[i].style.backgroundColor = "#000080";
-
-    });
-
-  }
+  parentContainer.addEventListener("mouseover", mouseOver);
 
 })
