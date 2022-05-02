@@ -1,8 +1,10 @@
 const parentContainer = document.getElementById("container");
+const pixels = document.getElementsByClassName("px");
+const changeGridButton = document.getElementById("change-grid");
 
-function divSetup() {
+function divSetup(gridAmount) {
 
-  for (let i = 0; i < 256; i++) {
+  for (let i = 0; i < parseInt(gridAmount); i++) {
 
     let pixel = document.createElement("div")
     parentContainer.append(pixel)
@@ -12,15 +14,17 @@ function divSetup() {
 
 }
 
-divSetup();
+changeGridButton.addEventListener("click", function askUserInput() {
 
-const pixels = document.getElementsByClassName("px");
+  var userInputGridAmount = prompt("How many pixels do you want?:");
+  divSetup(userInputGridAmount);
+  for (let i = 0; i < pixels.length; i++) {
 
-for (let i = 0; i < pixels.length; i++) {
+    pixels[i].addEventListener("mouseover", function mouseOver() {
+      pixels[i].style.backgroundColor = "#000080";
 
-  pixels[i].addEventListener("mouseover", function mouseOver() {
-    pixels[i].style.backgroundColor = "#000080";
+    });
 
-  });
+  }
 
-}
+})
